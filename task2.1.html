@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			window.onload=function()
+			{
+				var i=document.getElementById('in');
+				var o=document.getElementById('out');
+				var but=document.getElementsByTagName('button');
+			
+			but[0].onclick=function()
+			{   
+				alert('1')
+				o.value=i.value;
+			};
+			}
+		</script>
+	</head>
+	<body>
+		
+		<input id="in"  type="text" /> <button >确认填写</button>
+		
+		<br />
+		<br />
+		<br />
+		<label>你输入的值是：</label><input   id="out" type="text"/>
+		
+	</body>
+</html>

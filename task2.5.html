@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				margin:10px;
+				display:inline-block;
+				float: left;
+				width: 30px;
+				/*height:30px;*/
+				text-align: center;
+				background-color: red;
+				color: red;
+				font-size: 1px;
+}
+		</style>
+		<script>
+   
+	       
+	       function  direc(direction){
+	       	
+	       	  var put =document.getElementById('put');
+	      
+	      
+	             if(isNaN(put.value)||put.value=="")
+				 alert('please input a number') 
+	    
+                else if(10<put.value&&put.value<100)
+                {
+                        var li =document.createElement('li');
+					    li.innerText=put.value;
+				        var list=document.getElementById('list');
+	       	            var l=document.getElementsByTagName('li');
+	       	           
+	       	           	if(l.length<20)	 
+	       	           	{       
+	       	           		      li.style.height = put.value+'px';  //自定义样式高度
+	       	           	           if(direction==1)
+				    		  {
+				      		
+				      			     
+				      				  list.insertBefore(li,list.firstChild);
+				    			}
+	       	 
+	       					    else if(direction==2)
+	           
+	            		       list.appendChild(li);
+                		}	
+                		
+                		else if(l.length>=50)	    
+                		      alert('队列已经是五十个');             //队列限制
+	     
+	       	    }
+	       	           	    
+	              else 
+                  alert('请输入10~100');
+                
+
+				
+ }  
+	    
+
+         function dele(dele)
+          {
+          	
+          	var l=document.getElementsByTagName('li');
+          	if(dele==1)
+		    l[0].remove();
+	
+          	else if(dele==2)
+          	{ 
+               l[l.length-1].remove();}   //从零开始数起，所以减一
+          
+          	
+    	
+};
+
+
+    function rank()
+    {
+//  	var ran=document.getElementById('rank');
+        var arr=[];
+    	var l=document.getElementsByTagName('li');
+    	for( i=0;i<l.length;i++)
+    	{
+
+
+        arr.push(l[i].innerText);
+
+    	}
+    	arr.sort(function(x,y){return x-y});
+
+    	document.getElementById("list").innerHTML = "";//清空当前的ul
+
+    	var list=document.getElementById('list');
+    	for( i=0;i<arr.length;i++)
+    	{
+    		var li=document.createElement('li');
+    		li.style.height=arr[i]+'px';
+    		list.append(li);
+    	}
+    	
+    	
+    	
+    }
+
+
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		
+		<div style="width:1000px;height: 200px;border: groove;padding: 10px;margin: 0 auto;">
+			
+			<input type="text" id="put"  placeholder="请输入10~100" >
+			<input  id="l"  type="button"  value="左侧入" onclick="direc(1)"/>
+			<button id="r"  onclick="direc(2)">右侧入</button>
+			<button id="ld"  onclick="dele(1)">左侧出</button> 
+			<button id="rd"   onclick="dele(2)"> 右侧出</button>
+			<button id="rd"   onclick="dele(2)"> 右侧出</button>
+			<button id="rank"   onclick="rank()"> 排序</button>
+			
+			<ul id="list" >
+
+		
+	
+			</ul>
+		</div>
+	</body>
+</html>

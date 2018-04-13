@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{margin:10px;display:inline-block;border: dashed;   float: left;width: 30px;height:30px;text-align: center;background-color: red;}
+		</style>
+		<script>
+			
+	
+				   
+				   
+				   
+//				 function leftin(){
+//				 	var put =document.getElementById('put');
+//				    var li =document.createElement('li');
+//				    li.innerText=put.value;
+//				   
+//				   var list=document.getElementById('list');
+//				       list.insertBefore(li,list.firstChild);       
+//				 
+//				 
+//				 };
+//				 
+//				 
+//				function  rightin(){
+//				 	var put =document.getElementById('put');
+//				    var li =document.createElement('li');
+//				    li.innerText=put.value;
+//				   
+//				   var list=document.getElementById('list');
+//				     list.appendChild(li);
+//				 
+//				 
+//				 };
+//	       
+	       
+	       function  direc(direction){
+	       	
+	       	  var put =document.getElementById('put');
+	      
+	      
+	             if(isNaN(put.value)||put.value=="")
+				 alert('please input a number') ;
+	    	
+                else{
+				    var li =document.createElement('li');
+				
+				
+					    li.innerText=put.value;
+				    var list=document.getElementById('list');
+	       	   if(direction==1)
+				       list.insertBefore(li,list.firstChild);  
+	       	 
+	        	 else if(direction==2)
+	           list.appendChild(li);};
+	       		  
+			
+
+	       }  
+//	       
+
+         function dele(dele)
+          {
+          	
+          	var l=document.getElementsByTagName('li');
+          	if(dele==1)
+		    l[0].remove();
+	
+          	else if(dele==2)
+          	{  alert(l.length);
+          		l[l.length-1].remove();}   //从零开始数起，所以减一
+          
+          	
+    	
+          };
+
+
+			
+		</script>
+	</head>
+	<body>
+		
+		
+		
+		<div style="width: 500px;height: 200px;border: groove;padding: 10px;margin: 0 auto;">
+			
+			<input type="text" id="put" >
+			<input  id="l"  type="button"  value="左侧入" onclick="direc(1)"/>
+			<button id="r"  onclick="direc(2)">右侧入</button>
+			<button id="ld"  onclick="dele(1)">左侧出</button> 
+			<button id="rd"   onclick="dele(2)"> 右侧出</button>
+			
+			<ul id="list" >
+
+		
+	
+			</ul>
+		</div>
+	</body>
+</html>

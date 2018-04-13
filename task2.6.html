@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				height: 600px;
+				width: 50%;
+				border: dashed;
+				margin:  0 auto;
+			}
+			
+			li{
+				display: inline-block;
+				height: 50px;
+				width: 50px;
+				font-size: 20px;
+			    line-height: 40px;
+			    margin: 0 10px;
+			    background-color: red;
+			}
+			
+			
+		</style>
+		
+		<script>
+			function put(){
+				
+				var put=document.getElementById('put');
+				
+				
+				
+				if(put.value!='')
+				
+				{	
+					var li=document.createElement('li');
+					li.innerText=put.value;
+			        var list=document.getElementById('list');
+				
+				list.append(li);}
+				
+				else
+				alert('请任意输入');
+				
+				}
+			
+				
+				function sear(){
+					
+					var sea=document.getElementById('sea');
+					var li =document.getElementsByTagName('li');
+					var reg=new RegExp(".*"+sea.value+".*","g");
+					
+					if (sea.value=='')
+					  alert('input what you serach');   
+					  
+					  else{
+					       
+					           for(i=0;i<li.length;i++)
+						{
+							   var str=li[i].innerText;
+                              
+							   if(str.match(reg))
+					           li[i].style.backgroundColor="yellow";
+					           
+					 
+					   };
+					  }
+						
+						    
+					
+					
+					
+				}
+				
+				
+				
+		
+			
+		</script
+	</head>
+	<body>
+		
+		<div>
+				<input type="text" id="put" placeholder="请任意输入" />
+				<button id="in"    onclick="put()" >input</button>
+				
+				<input type="text" id='sea' placeholder="请任意输入" />
+                <button id="sear"  onclick="sear()">search</button>
+                
+                
+          
+                
+                <ul id="list">
+             
+                </ul>
+		</div>
+		
+		
+	</body>
+</html>
